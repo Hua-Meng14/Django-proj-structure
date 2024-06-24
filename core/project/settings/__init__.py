@@ -1,15 +1,12 @@
 import os.path
-
 from pathlib import Path
 
 from split_settings.tools import include, optional
-
 """
 Import necessary modules and define settings for including base settings and optional local settings.
 Resolves the path for the local settings file based on the provided environment variable or default path.
 Includes the base settings file and optionally includes the local settings file if available.
 """
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
@@ -24,7 +21,6 @@ if not LOCAL_SETTINGS_PATH:
 
 if not os.path.isabs(LOCAL_SETTINGS_PATH):
     LOCAL_SETTINGS_PATH = str(BASE_DIR / LOCAL_SETTINGS_PATH)
-
 
 include(
     'base.py',
